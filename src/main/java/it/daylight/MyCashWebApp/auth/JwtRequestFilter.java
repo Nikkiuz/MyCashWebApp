@@ -1,5 +1,6 @@
 package it.daylight.MyCashWebApp.auth;
 
+import io.jsonwebtoken.ExpiredJwtException;
 import it.daylight.MyCashWebApp.service.CustomerUserDetailsService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -46,7 +47,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 		if (requestTokenHeader != null && requestTokenHeader.startsWith("Bearer ")) {
 			jwtToken = requestTokenHeader.substring(7);
 			try {
-				email = jwtTokenUtil.getUsernameFromToken(jwtToken); // 🔹 Ora estrae l'email
+				email = jwtTokenUtil.getUsernameFromToken(jwtToken);
 				System.out.println("✅ [JWT Filter] Token valido, utente: " + email);
 			} catch (IllegalArgumentException e) {
 				System.out.println("❌ Impossibile ottenere il token JWT");
