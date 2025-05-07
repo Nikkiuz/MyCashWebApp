@@ -1,6 +1,5 @@
 package it.daylight.MyCashWebApp.auth;
 
-import it.daylight.MyCashWebApp.entity.app_users.AppUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
