@@ -1,0 +1,4 @@
+package it.daylight.MyCashWebApp.auth;
+
+public class JwtTokenUtil {
+}
