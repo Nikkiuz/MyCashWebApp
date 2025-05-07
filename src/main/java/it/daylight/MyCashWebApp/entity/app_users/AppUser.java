@@ -10,6 +10,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Entity
@@ -19,7 +20,7 @@ import java.util.stream.Collectors;
 @Data
 public class AppUser implements UserDetails {
 	@Id
-	@GeneratedValue(strategy =  GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@Column(nullable = false, unique = true)
@@ -44,8 +45,8 @@ public class AppUser implements UserDetails {
 	@Override
 	public Collection<GrantedAuthority> getAuthorities() {
 		return roles.stream()
-			.map(role -> new SimpleGrantedAuthority(role.name()))
-			.collect(Collectors.toList());
+				.map(role -> new SimpleGrantedAuthority(role.name()))
+				.collect(Collectors.toList());
 	}
 
 	public AppUser(String username, String email, String password, Collection<? extends GrantedAuthority> authorities) {
@@ -53,7 +54,8 @@ public class AppUser implements UserDetails {
 	}
 
 	public AppUser(String username, String email, String password, boolean enabled, boolean accountNonExpired,
-	               boolean credentialsNonExpired, boolean accountNonLocked, Collection<? extends GrantedAuthority> authorities) {
+			boolean credentialsNonExpired, boolean accountNonLocked,
+			Collection<? extends GrantedAuthority> authorities) {
 		this.username = username;
 		this.email = email;
 		this.password = password;
