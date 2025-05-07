@@ -1,0 +1,4 @@
+package it.daylight.MyCashWebApp.entity.app_users;
+
+public class Income {
+}

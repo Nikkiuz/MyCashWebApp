@@ -1,0 +1,4 @@
+package it.daylight.MyCashWebApp.entity;
+
+public class Outcome {
+}
