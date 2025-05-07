@@ -1,5 +1,6 @@
 package it.daylight.MyCashWebApp.auth;
 
+import it.daylight.MyCashWebApp.service.CustomerUserDetailsService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

@@ -1,8 +1,10 @@
-package it.daylight.MyCashWebApp.auth;
+package it.daylight.MyCashWebApp.config;
 
 import java.util.List;
-import java.util.logging.Logger;
 
+import it.daylight.MyCashWebApp.service.CustomerUserDetailsService;
+import it.daylight.MyCashWebApp.auth.JwtAuthenticationEntryPoint;
+import it.daylight.MyCashWebApp.auth.JwtRequestFilter;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
