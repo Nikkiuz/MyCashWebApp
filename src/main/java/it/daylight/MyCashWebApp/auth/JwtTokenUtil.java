@@ -40,9 +40,9 @@ public class JwtTokenUtil {
 	// Estrae tutti i claims dal token JWT
 	private Claims getAllClaimsFromToken(String token) {
 		return Jwts.parser()
-			.setSigningKey(secret)
-			.parseClaimsJws(token)
-			.getBody();
+				.setSigningKey(secret)
+				.parseClaimsJws(token)
+				.getBody();
 	}
 
 	// Verifica se il token JWT è scaduto
@@ -53,23 +53,21 @@ public class JwtTokenUtil {
 
 	// Genera un token JWT per l'utente, includendo i ruoli
 	public String generateToken(AppUser user) {
-		List<String> roles = user.getRoles() != null ?
-			user.getRoles().stream().map(Enum::name).collect(Collectors.toList()) :
-			List.of(); // Se roles è null, usa una lista vuota
+		List<String> roles = user.getRoles() != null
+				? user.getRoles().stream().map(Enum::name).collect(Collectors.toList())
+				: List.of(); // Se roles è null, usa una lista vuota
 
 		String token = Jwts.builder()
-			.setSubject(user.getEmail()) // ✅ Ora usa l'email come identificatore
-			.claim("roles", roles) // Aggiunge i ruoli come claim
-			.setIssuedAt(new Date(System.currentTimeMillis()))
-			.setExpiration(new Date(System.currentTimeMillis() + jwtExpirationInMs))
-			.signWith(SignatureAlgorithm.HS256, secret)
-			.compact();
+				.setSubject(user.getEmail()) // ✅ Ora usa l'email come identificatore
+				.claim("roles", roles) // Aggiunge i ruoli come claim
+				.setIssuedAt(new Date(System.currentTimeMillis()))
+				.setExpiration(new Date(System.currentTimeMillis() + jwtExpirationInMs))
+				.signWith(SignatureAlgorithm.HS256, secret)
+				.compact();
 
 		System.out.println("🛡️ Token generato per " + user.getEmail() + ": " + token); // 🔍 Debug
 		return token;
 	}
-
-
 
 	// Estrae i ruoli dal token JWT
 	public List<String> getRolesFromToken(String token) {
