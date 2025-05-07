@@ -28,10 +28,10 @@ public class Goals {
 	private String category;
 
 	@Column(nullable = false)
-	private long amount;
+	private double amount;
 
 	@Column(nullable = false)
-	private long currentAmount;
+	private double currentAmount;
 
 	@Column(nullable = false)
 	private String description;

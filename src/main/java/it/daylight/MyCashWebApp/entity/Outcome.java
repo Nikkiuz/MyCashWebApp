@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -19,10 +19,10 @@ public class Outcome {
 	private Long id;
 
 	@Column(nullable = false)
-	private LocalDate date = LocalDate.now();
+	private LocalDateTime date;
 
 	@Column(nullable = false)
-	private Long amount;
+	private double amount;
 
 	@Column(nullable = false)
 	private String category;
@@ -36,4 +36,9 @@ public class Outcome {
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
+
+	@PrePersist
+	protected void onCreate() {
+		this.date = LocalDateTime.now();
+	}
 }

@@ -1,13 +1,11 @@
 package it.daylight.MyCashWebApp.entity;
 
-import it.daylight.MyCashWebApp.entity.app_users.AppUser;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "incomes")
@@ -21,10 +19,10 @@ public class Income {
 	private Long id;
 
 	@Column(nullable = false)
-	private LocalDate date = LocalDate.now();
+	private LocalDateTime date;
 
 	@Column(nullable = false)
-	private Long amount;
+	private double amount;
 
 	@Column(nullable = false)
 	private String category;
@@ -35,4 +33,9 @@ public class Income {
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
+
+	@PrePersist
+	protected void onCreate() {
+		this.date = LocalDateTime.now();
+	}
 }

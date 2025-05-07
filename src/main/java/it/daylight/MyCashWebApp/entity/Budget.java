@@ -17,13 +17,13 @@ public class Budget {
 	private Long id;
 
 	@Column(nullable = false)
-	private Long incomeAmount;
+	private double incomeAmount;
 
 	@Column(nullable = false)
-	private Long outcomeAmount;
+	private double outcomeAmount;
 
 	@Column(nullable = false)
-	private Long totalAmount;
+	private double totalAmount;
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
