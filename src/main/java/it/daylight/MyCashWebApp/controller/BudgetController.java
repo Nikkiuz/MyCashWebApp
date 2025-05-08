@@ -14,7 +14,7 @@ public class BudgetController {
 
     private final BudgetService budgetService;
 
-    @GetMapping("/mensile")
+    @GetMapping("/monthly")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Double> getMonthlyBudget(@RequestParam int year, @RequestParam int month,
                                                      @RequestParam(required = false) Long userId) {
@@ -22,7 +22,7 @@ public class BudgetController {
         return ResponseEntity.ok(budget);
     }
 
-    @GetMapping("/annuale")
+    @GetMapping("/annual")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Double> getAnnualBudget(@RequestParam int year,
                                                      @RequestParam(required = false) Long userId) {

@@ -18,15 +18,15 @@ public class BudgetController {
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Double> getMonthlyBudget(@RequestParam int year, @RequestParam int month,
                                                      @RequestParam(required = false) Long userId) {
-        double budget = budgetService.(year, month, userId);
+        double budget = budgetService.calculateMonthlyBudget(year, month, userId);
         return ResponseEntity.ok(budget);
     }
 
     @GetMapping("/annuale")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<Double> getBilancioAnnuale(@RequestParam int year,
+    public ResponseEntity<Double> getAnnualBudget(@RequestParam int year,
                                                      @RequestParam(required = false) Long userId) {
-        double bilancio = budgetService.calcolaBilancioAnnuale(year, userId);
-        return ResponseEntity.ok(bilancio);
+        double budget = budgetService.calculateAnnualBudget(year, userId);
+        return ResponseEntity.ok(budget);
     }
 }
