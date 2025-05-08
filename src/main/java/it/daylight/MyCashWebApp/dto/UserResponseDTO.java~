@@ -11,6 +11,6 @@ public class UserResponseDTO {
 	private String email;
 	private List<IncomeResponseDTO> incomes;
 	private List<OutcomeResponseDTO> outcomes;
-	private List<GoalResponseDTO> goals;
+	private List<GoalsResponseDTO> goals;
 	private List<BudgetResponseDTO> budgets;
 }

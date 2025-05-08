@@ -2,7 +2,7 @@ package it.daylight.MyCashWebApp.dto;
 
 import it.daylight.MyCashWebApp.entity.IncomeCategories;
 import lombok.Data;
-;
+
 import java.util.Date;
 
 @Data

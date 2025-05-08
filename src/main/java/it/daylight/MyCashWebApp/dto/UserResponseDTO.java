@@ -12,5 +12,4 @@ public class UserResponseDTO {
 	private List<IncomeResponseDTO> incomes;
 	private List<OutcomeResponseDTO> outcomes;
 	private List<GoalsResponseDTO> goals;
-	private List<BudgetResponseDTO> budgets;
 }
