@@ -21,10 +21,10 @@ public interface IncomeRepository extends JpaRepository<Income, Long> {
 
 	List<Income> findByIncomeCategories(IncomeCategories incomeCategories);
 
-	@Query("SELECT SUM(e.importo) FROM Entrata e WHERE YEAR(e.data) = :anno AND MONTH(e.data) = :mese")
-	double getEntrateMensili(@Param("anno") int anno, @Param("mese") int mese);
+	@Query("SELECT SUM(i.amount) FROM Income i WHERE YEAR(i.date) = :year AND MONTH(i.date) = :month")
+	double getMonthlyIncome(@Param("year") int year, @Param("month") int month);
 
-	@Query("SELECT SUM(e.importo) FROM Entrata e WHERE YEAR(e.data) = :anno")
-	double getEntrateAnnuali(@Param("anno") int anno);
+	@Query("SELECT SUM(i.amount) FROM Income i WHERE YEAR(i.date) = :year")
+	double getAnnualIncome(@Param("year") int year);
 
 }
