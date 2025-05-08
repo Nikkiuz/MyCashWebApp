@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Table(name = "incomes")
@@ -19,7 +19,7 @@ public class Income {
 	private Long id;
 
 	@Column(nullable = false)
-	private LocalDateTime date;
+	private Date date;
 
 	@Column(nullable = false)
 	private double amount;
@@ -35,8 +35,4 @@ public class Income {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-	@PrePersist
-	protected void onCreate() {
-		this.date = LocalDateTime.now();
-	}
 }

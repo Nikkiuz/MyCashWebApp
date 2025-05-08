@@ -25,7 +25,7 @@ import org.springframework.http.ResponseEntity;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/goals")
+@RequestMapping("/api/goals")
 @RequiredArgsConstructor
 public class GoalsController {
 

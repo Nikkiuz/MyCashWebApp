@@ -41,7 +41,7 @@ public class OutcomeContoller {
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<OutcomeResponseDTO> getFilteredOutcomes(
             @RequestParam(required = false) OutcomeCategories outcomeCategories,
-            @RequestParam(required = false) LocalDateTime date,
+            @RequestParam(required = false) Date date,
             @RequestParam(required = false) Double amount,
             @RequestParam(required = false) Date expirationDate,
             @RequestParam(required = false) User user) {

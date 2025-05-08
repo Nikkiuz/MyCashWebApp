@@ -6,17 +6,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.sql.Date;
-import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
 
+import it.daylight.MyCashWebApp.dto.IncomeRequestDTO;
 import it.daylight.MyCashWebApp.dto.IncomeResponseDTO;
 import it.daylight.MyCashWebApp.entity.Income;
 import it.daylight.MyCashWebApp.entity.IncomeCategories;
@@ -45,7 +46,7 @@ public class IncomeController {
     @GetMapping("/filtered")
     public List<IncomeResponseDTO> getFilteredIncomes(
             @RequestParam(required = false) IncomeCategories incomeCategories,
-            @RequestParam(required = false) LocalDateTime date,
+            @RequestParam(required = false) Date date,
             @RequestParam(required = false) Double amount,
             @RequestParam(required = false) User user) {
         return incomeService.getFilteredIncomes(incomeCategories, date, amount, user);
