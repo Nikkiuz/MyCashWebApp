@@ -15,6 +15,7 @@ import java.util.Date;
 import org.springframework.http.HttpStatus;
 
 import it.daylight.MyCashWebApp.dto.OutcomeResponseDTO;
+import it.daylight.MyCashWebApp.entity.User;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -42,8 +43,10 @@ public class OutcomeContoller {
             @RequestParam(required = false) OutcomeCategories outcomeCategories,
             @RequestParam(required = false) LocalDateTime date,
             @RequestParam(required = false) Double amount,
-            @RequestParam(required = false) Date expirationDate) {
-        return ResponseEntity.ok(outcomeService.getFilteredOutcomes(outcomeCategories, date, amount, expirationDate));
+            @RequestParam(required = false) Date expirationDate,
+            @RequestParam(required = false) User user) {
+        return ResponseEntity
+                .ok(outcomeService.getFilteredOutcomes(outcomeCategories, date, amount, expirationDate, user));
     }
 
     @PostMapping

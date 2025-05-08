@@ -25,7 +25,8 @@ public class Goals {
 	private Date expirationDate;
 
 	@Column(nullable = false)
-	private String category;
+	@Enumerated(EnumType.STRING)
+	private GoalsCategories goalsCategories;
 
 	@Column(nullable = false)
 	private double amount;

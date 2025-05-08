@@ -20,6 +20,7 @@ import org.springframework.http.HttpStatus;
 import it.daylight.MyCashWebApp.dto.IncomeResponseDTO;
 import it.daylight.MyCashWebApp.entity.Income;
 import it.daylight.MyCashWebApp.entity.IncomeCategories;
+import it.daylight.MyCashWebApp.entity.User;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -45,8 +46,9 @@ public class IncomeController {
     public List<IncomeResponseDTO> getFilteredIncomes(
             @RequestParam(required = false) IncomeCategories incomeCategories,
             @RequestParam(required = false) LocalDateTime date,
-            @RequestParam(required = false) Double amount) {
-        return incomeService.getFilteredIncomes(incomeCategories, date, amount);
+            @RequestParam(required = false) Double amount,
+            @RequestParam(required = false) User user) {
+        return incomeService.getFilteredIncomes(incomeCategories, date, amount, user);
     }
 
     @PostMapping
