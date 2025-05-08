@@ -24,8 +24,9 @@ public class Income {
 	@Column(nullable = false)
 	private double amount;
 
+	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
-	private String category;
+	private IncomeCategories incomeCategories;
 
 	@Column(nullable = false)
 	private String description;

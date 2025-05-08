@@ -24,8 +24,9 @@ public class Outcome {
 	@Column(nullable = false)
 	private double amount;
 
+	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
-	private String category;
+	private OutcomeCategories outcomeCategories;
 
 	@Column(nullable = false)
 	private Date expirationDate;

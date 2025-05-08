@@ -1,5 +1,6 @@
 package it.daylight.MyCashWebApp.dto;
 
+import it.daylight.MyCashWebApp.entity.IncomeCategories;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -10,7 +11,7 @@ public class IncomeResponseDTO {
 	private String description;
 	private Double amount;
 	private LocalDateTime date;
-	private String category;
+	private IncomeCategories incomeCategories;
 	private Long userId;
 	private String userName;
 }
