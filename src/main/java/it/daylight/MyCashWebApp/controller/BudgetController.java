@@ -5,8 +5,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import it.daylight.MyCashWebApp.dto.BudgetResponseDTO;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -21,7 +19,7 @@ public class BudgetController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<BudgetResponseDTO> getBudget() {
+    public ResponseEntity<> getBudget() {
         return ResponseEntity.ok(budgetService.getBudget());
     }
 

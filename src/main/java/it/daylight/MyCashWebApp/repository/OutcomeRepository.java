@@ -22,9 +22,11 @@ public interface OutcomeRepository extends JpaRepository<Outcome, Long> {
 
 	List<Outcome> findByOutcomeCategories(OutcomeCategories outcomeCategories);
 
-	@Query("SELECT SUM(o.amount) FROM Outcome o WHERE YEAR(o.date) = :year AND MONTH(o.date) = :month")
-	double getMonthlyOutcome(@Param("year") int year, @Param("month") int month);
+	@Query("SELECT SUM(o.amount) FROM Outcome o WHERE YEAR(o.date) = :year AND MONTH(o.date) = :month" +
+		"AND (:userId IS NULL OR o.user.id = :userId)")
+	double getMonthlyOutcome(@Param("year") int year, @Param("month") int month, @Param("userId") Long userId);
 
-	@Query("SELECT SUM(o.amount) FROM Outcome o WHERE YEAR(o.date) = :year")
-	double getAnnualOutcome(@Param("year") int year);
+	@Query("SELECT SUM(o.amount) FROM Outcome o WHERE YEAR(o.date) = :year" +
+		"AND (:userId IS NULL OR o.user.id = :userId)")
+	double getAnnualOutcome(@Param("year") int year, @Param("userId") Long userId);
 }
