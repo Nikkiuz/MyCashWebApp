@@ -91,7 +91,7 @@ public class IncomeController {
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteIncome(@PathVariable Long id) {
         incomeService.deleteIncome(id);
-        return ResponseEntity.ok("Income deleted successfully");
+        return ResponseEntity.ok("Entrata eliminata");
     }
 
 }

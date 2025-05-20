@@ -2,10 +2,12 @@ package it.daylight.MyCashWebApp.controller;
 
 import it.daylight.MyCashWebApp.dto.OutcomeRequestDTO;
 import it.daylight.MyCashWebApp.entity.OutcomeCategories;
+import it.daylight.MyCashWebApp.service.OutcomeService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.http.HttpStatus;
 
@@ -22,8 +24,8 @@ public class OutcomeContoller {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<OutcomeResponseDTO> getAllOutcomes() {
-        return ResponseEntity.ok(outcomeService.getAllOutcomes());
+    public List<OutcomeResponseDTO> getAllOutcomes() {
+        return outcomeService.getAllOutcomes();
     }
 
     @GetMapping("/{id}")
@@ -34,14 +36,13 @@ public class OutcomeContoller {
 
     @GetMapping("/filtered")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<OutcomeResponseDTO> getFilteredOutcomes(
+    public List<OutcomeResponseDTO> getFilteredOutcomes(
             @RequestParam(required = false) OutcomeCategories outcomeCategories,
             @RequestParam(required = false) Date date,
             @RequestParam(required = false) Double amount,
             @RequestParam(required = false) Date expirationDate,
             @RequestParam(required = false) User user) {
-        return ResponseEntity
-                .ok(outcomeService.getFilteredOutcomes(outcomeCategories, date, amount, expirationDate, user));
+        return outcomeService.getFilteredOutcomes(outcomeCategories, date, amount, expirationDate, user);
     }
 
     @PostMapping

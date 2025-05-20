@@ -107,6 +107,7 @@ public class IncomeService {
 	}
 
 
+	//metodo utilizzato per convertire un oggetto Income in un oggetto IncomeResponseDTO
 	private IncomeResponseDTO convertToResponseDTO(Income income) {
 		IncomeResponseDTO dto = new IncomeResponseDTO();
 		BeanUtils.copyProperties(income, dto);
